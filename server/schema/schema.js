@@ -1,6 +1,6 @@
 const graphql = require('graphql');
 const Book = require('../models/book');
-const Author = require('../models/Author');
+const Author = require('../models/author');
 const _ = require('lodash');
 
 const {
@@ -85,6 +85,7 @@ const Mutation = new GraphQLObjectType({
             },
             resolve(parent, args){
                 let author = new Author({
+//                     if it will be new author the error occure author  is not constructor ;
                     name: args.name,
                     age: args.age
                 });
@@ -99,7 +100,8 @@ const Mutation = new GraphQLObjectType({
                 authorId: { type: GraphQLID }
             },
             resolve(parent, args){
-                let book = new Book({
+                let book =  Book({  
+//                     if it will be new book the error occure book is not constructor ;
                     name: args.name,
                     genre: args.genre,
                     authorId: args.authorId
